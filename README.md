@@ -11,7 +11,7 @@ This is intended for educational purposes only.
 
 ## Usage:
 1. Clone the repository
-2. Install the dependencies with `npm install`
-3. Edit the `config` object inside `index.js` or use the `CLI` to suit your needs
-4. Run the script with `node index.js` (or `npm start`)
-Tipp: Use node index.js --help to get a list of all available options.
+2. `cd hello-twitch` into the directory
+3. Install the dependencies with `npm install`
+4. Edit the `config` object inside `index.js` or use the `CLI` to suit your needs (see `node index.js --help` for more information; CLI options overwrite the config object)
+5. Run the script with `node index.js` (or `npm start`)
