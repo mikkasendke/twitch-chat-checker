@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import { program } from 'commander';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import { startBrowser } from './browser.js';
 import { Scraper } from './pageScraper.js';
 
@@ -34,13 +34,14 @@ program.option('-p, --prepend_url <prepend_url>', 'prepend url if you want to us
 
 program.parse();
 
-console.log(`Checking if ${config.search} is in the chat of ${config.channel}.`)
+console.log(chalk.blue('Twitch Chat Checker by ') + chalk.red('Mikka'));
+console.log(chalk.green('Checking if ' + chalk.cyan.bold(config.search) + ' is in the chat of ' + chalk.cyan.bold(config.channel) + '.'));
 
 const browserInstance = await startBrowser(config.headless);
 
 setInterval(async () => {
     if (config.limit === 0) {
-        console.log('Limit reached, exiting.');
+        console.log(chalk.redBright('Limit reached, exiting.'));
         process.exit(0);
     }
     config.limit--;
@@ -58,7 +59,7 @@ const callback = async (page) => {
         await page.waitForSelector('[aria-labelledby="chat-viewers-list-header-VIPs"]');
     }
     catch (e) {
-        console.log('Couldn\'t find viewer list, exiting.');
+        console.log(chalk.redBright('Couldn\'t find viewer list, exiting.'));
         process.exit(1);
     }
 
@@ -71,15 +72,15 @@ const callback = async (page) => {
         return users;
     });
     
-    console.log(`\nSearching ${usernames.length} users for ${config.search}.`);
+    console.log(chalk.gray(`\nSearching ${usernames.length} users for ${config.search}.`));
 
     for (let i = 0; i < usernames.length; i++) {
         if (usernames[i] === config.search.toLowerCase()) {
-            console.log(`${config.search} is in the chat`);
+            console.log(chalk.greenBright.bold(chalk.yellowBright.bold(config.search) + " is in the chat"));
             return;
         }
     }
-    console.log(`${config.search} is not in the chat`);
+    console.log(chalk.gray(`${config.search} is not in the chat`));
 
 }
 
