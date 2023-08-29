@@ -13,6 +13,10 @@ const config = {
     prepend_url: "" // prepend url if you want to use a proxy.
 }
 
+let log = console.log;
+console.log = function () {
+    log(chalk.gray('[' + new Date().toLocaleTimeString() + ']'), ...arguments);
+};
 program.option('-c, --channel <channel>', 'Channel to search in (not the URL, just the name, e.g. \'xQcOW\' or \'xqcow\' not \'https://www.twitch.tv/xqcow\')', (channel) => {
     config.channel = String(channel);
 });
