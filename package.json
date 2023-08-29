@@ -1,0 +1,15 @@
+{
+    "name": "bot",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "run": "node ./index.js"
+    },
+    "author": "",
+    "dependencies": {
+        "puppeteer": "^21.1.1",
+        "tmi.js": "^1.8.5"
+    }
+}
