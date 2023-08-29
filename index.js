@@ -1,3 +1,6 @@
+#! /usr/bin/env node
+import { program } from 'commander';
+import * as chalk from 'chalk';
 import { startBrowser } from './browser.js';
 import { Scraper } from './pageScraper.js';
 
@@ -9,6 +12,27 @@ const config = {
     delay: 5000, // delay between each check in ms, be careful with this.
     prepend_url: "" // prepend url if you want to use a proxy.
 }
+
+program.option('-c, --channel <channel>', 'Channel to search in (not the URL, just the name, e.g. \'xQcOW\' or \'xqcow\' not \'https://www.twitch.tv/xqcow\')', (channel) => {
+    config.channel = String(channel);
+});
+program.option('-s, --search <search>', 'Username to search for in chat', (search) => {
+    config.search = String(search);
+});
+program.option('-h, --headless <headless>', 'true = no browser window, false = browser window', (headless) => {
+    config.headless = Boolean(headless);
+});
+program.option('-l, --limit <limit>', '-1 = no limit', (limit) => {
+    config.limit = Number(limit);
+});
+program.option('-d, --delay <delay>', 'delay between each check in ms, be careful with this.', (delay) => {
+    config.delay = Number(delay);
+});
+program.option('-p, --prepend_url <prepend_url>', 'prepend url if you want to use a proxy.', (prepend_url) => {
+    config.prepend_url = String(prepend_url);
+});
+
+program.parse();
 
 console.log(`Checking if ${config.search} is in the chat of ${config.channel}.`)
 
