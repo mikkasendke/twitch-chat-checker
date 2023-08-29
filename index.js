@@ -81,11 +81,11 @@ const callback = async (page) => {
 
     for (let i = 0; i < usernames.length; i++) {
         if (usernames[i] === config.search.toLowerCase()) {
-            console.log(chalk.greenBright.bold(chalk.yellowBright.bold(config.search) + " is in the chat.\n"));
+            console.log(chalk.greenBright.bold(chalk.yellowBright.bold(config.search) + " is in the chat."));
             return;
         }
     }
-    console.log(chalk.gray(`${config.search} is not in the chat.\n`));
+    console.log(chalk.gray(`${config.search} is not in the chat.`));
 
 }
 
