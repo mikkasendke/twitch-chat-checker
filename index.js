@@ -20,7 +20,7 @@ program.option('-s, --search <search>', 'Username to search for in chat', (searc
     config.search = String(search);
 });
 program.option('-h, --headless <headless>', 'true = no browser window, false = browser window', (headless) => {
-    config.headless = Boolean(headless);
+    config.headless = headless === 'true';
 });
 program.option('-l, --limit <limit>', '-1 = no limit', (limit) => {
     config.limit = Number(limit);
