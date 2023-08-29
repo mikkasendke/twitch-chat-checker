@@ -12,6 +12,7 @@ export async function startBrowser(headless) {
 	    });
 	} catch (err) {
 	    console.log(chalk.redBright("Failed to create a browser instance, error: ", err));
+        process.exit(1);
 	}
 	return browser;
 }

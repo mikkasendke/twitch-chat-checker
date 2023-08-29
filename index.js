@@ -42,6 +42,7 @@ console.log(chalk.blue('Twitch Chat Checker by ') + chalk.red('Mikka'));
 console.log(chalk.green('Checking if ' + chalk.cyan.bold(config.search) + ' is in the chat of ' + chalk.cyan.bold(config.channel) + '.'));
 
 const browserInstance = await startBrowser(config.headless);
+console.log(chalk.greenBright('Browser started.\n'));
 
 setInterval(async () => {
     if (config.limit === 0) {
@@ -76,15 +77,15 @@ const callback = async (page) => {
         return users;
     });
     
-    console.log(chalk.gray(`\nSearching ${usernames.length} users for ${config.search}.`));
+    console.log(chalk.gray(`Searching ${usernames.length} users for ${config.search}.`));
 
     for (let i = 0; i < usernames.length; i++) {
         if (usernames[i] === config.search.toLowerCase()) {
-            console.log(chalk.greenBright.bold(chalk.yellowBright.bold(config.search) + " is in the chat"));
+            console.log(chalk.greenBright.bold(chalk.yellowBright.bold(config.search) + " is in the chat.\n"));
             return;
         }
     }
-    console.log(chalk.gray(`${config.search} is not in the chat`));
+    console.log(chalk.gray(`${config.search} is not in the chat.\n`));
 
 }
 
