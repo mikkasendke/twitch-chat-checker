@@ -12,5 +12,5 @@ This is intended for educational purposes only.
 ## Usage:
 1. Clone the repository
 2. Install the dependencies with `npm install`
-3. Edit the `config.json` file to suit your needs
+3. Edit the `config` object inside `index.js` to suit your needs
 4. Run the script with `node index.js` or `npm start`
