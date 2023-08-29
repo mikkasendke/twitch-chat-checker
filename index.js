@@ -16,7 +16,7 @@ const config = {
 program.option('-c, --channel <channel>', 'Channel to search in (not the URL, just the name, e.g. \'xQcOW\' or \'xqcow\' not \'https://www.twitch.tv/xqcow\')', (channel) => {
     config.channel = String(channel);
 });
-program.option('-s, --search <search>', 'Username to search for in chat', (search) => {
+program.option('-s, --search <search>', 'Username to search for in chat (not the URL, just the name, e.g. \'xQcOW\' or \'xqcow\' not \'https://www.twitch.tv/xqcow\')', (search) => {
     config.search = String(search);
 });
 program.option('-h, --headless <headless>', 'true = no browser window, false = browser window', (headless) => {
