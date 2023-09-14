@@ -1,4 +1,4 @@
-# Hello Twitch: Check if a user is connected to a channels chat.
+# Twitch Chat Checker: Check if a user is connected to a channels chat.
 A small node js script that checks if a specific user is connected to a specific twitch channels chat.
 It does not check every single user in bigger streams (just all vips, mods, the broadcaster and up to 100 chatters).
 
